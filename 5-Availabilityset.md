@@ -32,7 +32,7 @@ az deployment group create --resource-group renaudgroup --template-file availabi
 ** - AZCLI  créer un Availabilityset et ajouter une vm**
 
 ```
-$RESOURCE_GROUP="renaudgroup"
+$RESOURCE_GROUP="training-beauquier-rg"
 $AVAILABILITY_SET_NAME="MyAvailabilitySet"
 $LOCATION="westeurope"  # Remplace par la région souhaitée
 
