@@ -133,7 +133,14 @@ az vm create \
 
 ## 🔐 Connexion SSH à la VM
 
-### Étapes :
+### Étapes : 
+Quand on utilise --generate-ssh-keys , Azure stock la clé public et privé dans c:/users/nathan/.ssh
+
+### En ligne de commande :
+On peut donc ce connecter directement a la vm par le biais de cette commande par exemple :
+```bash
+  ssh -i ~/.ssh/id_rsa.pem azureuser@IPPUBLICVM
+```
 
 1. **Télécharger Putty** :  
    [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
@@ -143,5 +150,6 @@ az vm create \
 3. **Utiliser Putty** avec la **clé privée** de votre machine pour vous connecter à la VM
 
 ---
+
 
 > 🧠 Pensez à bien configurer votre groupe de sécurité réseau pour autoriser la connexion SSH (port 22).
