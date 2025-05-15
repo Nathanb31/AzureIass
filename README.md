@@ -224,10 +224,7 @@ Les templates Azure (ou ARM templates) sont des fichiers JSON (ou Bicep) qui dé
 **Via Azure CLI :**
 
 ```bash
-az deployment group create \
-  --resource-group MonGroupe \
-  --template-file azuredeploy.json \
-  --parameters vmName=MaVM
+  az deployment group create --resource-group $RESOURCE_GROUP --template-file ./template.json --parameters ./parameters.json
 ```
 
 **Via le Portail Azure :**
