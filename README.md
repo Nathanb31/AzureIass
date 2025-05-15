@@ -132,29 +132,34 @@ az vm create \
 ---
 
 ## 🔐 Connexion SSH à la VM
-
-### Étapes : 
+Différentes méthode : 
+  - Par client ssh en ligne de commande
+  - Par Client Web Azure
+  - Par un Putty par exemple (ssh)
+    
+### Étapes client ssh en ligne de commande : 
 Quand on utilise --generate-ssh-keys , Azure stock la clé public et privé dans c:/users/nathan/.ssh
 
-### ajout du client ssh sur Powershell :
-```bash
-  Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
-```
+  1. ajout du client ssh sur Powershell :
+  ```bash
+    Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+  ```
+  2. Connexion en ligne de commande :
+  On peut donc ce connecter directement a la vm par le biais de cette commande par exemple :
+  ```bash
+    ssh -i ~/.ssh/id_rsa.pem azureuser@IPPUBLICVM
+  ```
 
-### Connexion en ligne de commande :
-On peut donc ce connecter directement a la vm par le biais de cette commande par exemple :
-```bash
-  ssh -i ~/.ssh/id_rsa.pem azureuser@IPPUBLICVM
-```
+### Étapes client Web Azure : 
+  1. **Aller dans votre ressource groupe**  
 
-1. **Télécharger Putty** :  
-   [https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
+  2. **Selectionner votre VM**
 
-2. **Récupérer la clé publique générée** (lors de la création de la VM)
+  3. **Cliquer sur Connect, puis SSH using Azure CLI**
 
-3. **Utiliser Putty** avec la **clé privée** de votre machine pour vous connecter à la VM
-
+### Étapes client Putty :
+  1. Lancer putty
+  2. Charger la clé dans **Connexion -> SSH -> Auth -> Credentials**
+  3. Dans Session, renseigner L'IP Public et le port SSH puis démarrer la connection
 ---
-
-
 > 🧠 Pensez à bien configurer votre groupe de sécurité réseau pour autoriser la connexion SSH (port 22).
