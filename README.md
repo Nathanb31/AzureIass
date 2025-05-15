@@ -73,9 +73,6 @@ Affiche l’état de connexion et les informations du compte.
 Get-Help Get-AzVM -Full
 ```
 
-- **Templates de déploiement Azure :**  
-  [https://github.com/renauddahou/azure-quickstart-templates](https://github.com/renauddahou/azure-quickstart-templates)
-
 ---
 
 ## 💻 Utilisation de Microsoft Azure
@@ -244,7 +241,8 @@ az deployment group create \
 ### 📁 Exemples de templates
 
 Vous pouvez consulter la bibliothèque officielle ici :
-👉 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates)
+- **Templates de déploiement Azure :**  
+👉 [https://github.com/renauddahou/azure-quickstart-templates](https://github.com/renauddahou/azure-quickstart-templates)
 
 ---
 
