@@ -30,20 +30,34 @@ Dans notre cas, nous allons créer un **Public Load Balancer** qui répartit le 
 ## ⚙️ Installation et configuration du Load Balancer
 
 1. Rechercher dans le portail Azure le service **Load Balancer**
-2. Cliquer sur **Create Load Balancer**
-3. Configurer :
+   
+3. Cliquer sur **Create Load Balancer**
+   
+4. Configurer :
    - Le **nom**
    - Le **type** de Load Balancer (Public ou Internal)
-4. Configurer le **Frontend IP** :
+     
+![Basic Load Balancer](images/LB_BASIC.png)
+
+5. Configurer le **Frontend IP** :
    - Créer une **nouvelle adresse IP publique**
-5. Configurer le **Backend Pool** :
+     
+![Basic Load Balancer](images/LB_FRONTEND.png)
+
+6. Configurer le **Backend Pool** :
    - Donner un nom au backend
    - Sélectionner le **Virtual Network**
    - Associer le pool aux **VMs** ou **VM Scale Sets**
-6. Configurer les **Load Balancing Rules** :
+     
+![Basic Load Balancer](images/LB_BACKEND.png)
+
+7. Configurer les **Load Balancing Rules** :
    - Définir le **nom**, le **type**, le **frontend**, le **backend pool**, les **ports**
    - Créer et associer un **Health Probe**
-7. Cliquer sur **Create and Review**
+     
+![Basic Load Balancer](images/LB_RULE.png)
+
+8. Cliquer sur **Create and Review**
 
 ---
 
