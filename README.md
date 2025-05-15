@@ -136,7 +136,12 @@ az vm create \
 ### Étapes : 
 Quand on utilise --generate-ssh-keys , Azure stock la clé public et privé dans c:/users/nathan/.ssh
 
-### En ligne de commande :
+### ajout du client ssh sur Powershell :
+```bash
+  Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+```
+
+### Connexion en ligne de commande :
 On peut donc ce connecter directement a la vm par le biais de cette commande par exemple :
 ```bash
   ssh -i ~/.ssh/id_rsa.pem azureuser@IPPUBLICVM
