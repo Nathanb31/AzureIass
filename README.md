@@ -163,3 +163,88 @@ Quand on utilise --generate-ssh-keys , Azure stock la clé public et privé dans
   3. Dans Session, renseigner L'IP Public et le port SSH puis démarrer la connection
 ---
 > 🧠 Pensez à bien configurer votre groupe de sécurité réseau pour autoriser la connexion SSH (port 22).
+
+
+## 📦 Templates Azure (ARM Templates)
+
+Les templates Azure (ou ARM templates) sont des fichiers JSON (ou Bicep) qui décrivent de manière **déclarative** l'infrastructure que vous souhaitez déployer sur Azure.
+
+---
+
+### 🛁 Structure d’un template ARM (JSON)
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vmName": {
+      "type": "string",
+      "defaultValue": "MyVM",
+      "metadata": {
+        "description": "Nom de la machine virtuelle"
+      }
+    }
+  },
+  "variables": {
+    "location": "[resourceGroup().location]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2021-11-01",
+      "name": "[parameters('vmName')]",
+      "location": "[variables('location')]",
+      "properties": {
+        // Configuration de la VM
+      }
+    }
+  ],
+  "outputs": {
+    "vmName": {
+      "type": "string",
+      "value": "[parameters('vmName')]"
+    }
+  }
+}
+```
+
+---
+
+### ⚙️ Composants principaux d’un template
+
+| Élément      | Description                                               |
+| ------------ | --------------------------------------------------------- |
+| `parameters` | Entrées personnalisables (ex : nom de VM, taille, etc.)   |
+| `variables`  | Valeurs dérivées utilisées plusieurs fois                 |
+| `resources`  | Liste des ressources à déployer                           |
+| `outputs`    | Valeurs affichées après le déploiement (ex : IP publique) |
+
+---
+
+### 🚀 Déploiement d’un template
+
+**Via Azure CLI :**
+
+```bash
+az deployment group create \
+  --resource-group MonGroupe \
+  --template-file azuredeploy.json \
+  --parameters vmName=MaVM
+```
+
+**Via le Portail Azure :**
+
+1. Créez un groupe de ressources.
+2. Allez dans "Déployer un modèle personnalisé".
+3. Collez ou chargez votre template.
+
+---
+
+### 📁 Exemples de templates
+
+Vous pouvez consulter la bibliothèque officielle ici :
+👉 [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates)
+
+---
+
